@@ -11,17 +11,33 @@ This is an application developed by KainGroup to manage different departments wi
 - Update dev profile - A user should be able to update their dev profile
 - Delete dev profile - A user should be able to delete their dev profile
 
-### Frontend
+### FRONTEND
 
-##### ANGULAR
+#### Features
 
-##### HTML/CSS AND JAVASCRIPT
+- Sign up (User Registration)
+- Login
+- User Dashboard
 
-### Backend
+#### Frontend Technologies
 
-##### FLASK
+- ANGULAR
 
-##### DJANGO
+- HTML/CSS AND JAVASCRIPT
+
+### BACKEND
+
+#### Endpoints
+
+- `localhost/users/signup`
+- `localhost/users/login`
+- `localhost/users/profile`
+
+#### Backend Technologies
+
+- FLASK
+
+- DJANGO
 
 ### GIT WORKFLOW
 
@@ -31,11 +47,13 @@ This is an application developed by KainGroup to manage different departments wi
 	Bug/Fix: fix-[bug name]-[task ID]
 
 ##### Commit message format
-`git commit -m "`
-`ft(feature): add a feature to. . . .`
-`this commit adds a feature for. . . .`
-`[Delieveries [task ID]]`
-`"`
+```
+git commit -m "
+ft(feature): add a feature to. . . .
+this commit adds a feature for. . . .
+[Delieveries [task ID]]
+"
+```
 
 ##### Commit message header formats
 
@@ -45,9 +63,26 @@ This is an application developed by KainGroup to manage different departments wi
 
 ##### PR Format
 
+
+PR Title:
+`[task ID]: [PR Brief description]`
+
+PR Body:
+```
+What does this PR do?
+	- 
+Description of Task to be completed?
+	- 
+How should this be manually tested?
+	- 
+Any background context you want to provide?
+	- 
+What are the relevant pivotal tracker stories?
+	- 
+Screenshots (if appropriate)
+	- 
 ```
 
-```
 
 ### CODING CONVENTIONS
 
