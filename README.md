@@ -31,7 +31,7 @@ This is an application developed by KainGroup to manage different departments wi
 
 - `localhost/users/signup`
 - `localhost/users/login`
-- `localhost/users/profile`
+- `localhost/users/profiles/<int: user_id>`
 
 #### Backend Technologies
 
