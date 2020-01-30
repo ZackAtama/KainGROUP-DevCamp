@@ -1,50 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { User } from '../models/user';
 
 @Component({
     selector: 'app-sign',
     templateUrl: './signup.component.html'
 
 })
-export class SignUpComponent implements OnInit{
+
+export class SignUpComponent {
     pageTitle: string = 'Signup';
     
     imagePath: string = 'assets/images/Dogid.jpg'; 
-    
-    SignupForm: FormGroup;
-    isSubmitted  =  false;  
-    
-    constructor(private formBuilder: FormBuilder, 
-        private router: Router) {
+     
+    user: User = new User();
+
+    constructor(private auth: AuthService) {}
+
+    onRegister(): void {
+      this.auth.signup(this.user)
+      .then((user) => {
+        localStorage.setItem('token', user.json().auth_token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
-    
-    ngOnInit(){
-        this.SignupForm = this.formBuilder.group({
-            id: [],
-            fname: ['', Validators.required],
-            lname: ['', Validators.required],
-            email: ['',  Validators.required],
-            password: ['', Validators.required]
-        });
-    }
-
-    get formControls() { 
-        return this.SignupForm.controls; 
-    }
-
-
-    onSubmit(){
-        console.log(this.SignupForm.value);
-        this.isSubmitted = true;
-        this.router.navigateByUrl('/admin');
-
-        //console.log(this.SignupForm.value);
-        /*console.log(this.SignupForm.value);
-        if(this.SignupForm.invalid){
-            return;
-        }*/
-    }
-        
-
-}
+  }

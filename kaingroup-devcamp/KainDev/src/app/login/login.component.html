@@ -14,26 +14,21 @@
                 <h1 class="h4 text-gray-900 mb-4">Login  to Account!</h1>
                 <h1 class="h3 text-gray-900 mb-4" *ngIf='message'>{{message}}</h1>
               </div>
-              <form [formGroup]="loginForm" (ngSubmit)="login()" class="user"> 
+              <form (ngSubmit)="onLogin()" class="user"> 
 
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" name="email"
-                  required  formControlName="email"  placeholder="Email Address">
+
+                  <input type="email" class="form-control" id="email" placeholder="enter email" 
+                  [(ngModel)]="user.email" name="email" required>
                   
-                    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
-                      <div *ngIf="formControls.email.errors.required">Email is required</div>
-                    </div>
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control form-control-user" name="password"
-                    required  formControlName="password"  placeholder="Password">
-                    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
-                      <div *ngIf="formControls.password.errors.required">Password is required</div>
-                    </div>
-                  
+                  <input type="password" class="form-control" id="password" placeholder="enter password" 
+                  [(ngModel)]="user.password" name="password" required>
+     
                 </div>
-                <button  class="btn btn-primary btn-user btn-block" type="submit" value="Log in">
+                <button  class="btn btn-primary btn-user btn-block" type="submit">
                   Login
                 </button> 
                 

@@ -14,38 +14,21 @@
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 <h1 class="h3 text-gray-900 mb-4" *ngIf='message'>{{message}}</h1>
               </div>
-              <form [formGroup]="SignupForm"  (ngSubmit)="onSubmit()">
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="fname"
-                    required  formControlName="fname" placeholder="First Name">
-                  </div>
-
-
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user"  name="lname"
-                    required formControlName="lname" placeholder="Last Name">
-                  </div>
+              <form (ngSubmit)="onRegister()" novalidate>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" name="email"
-                  required  formControlName="email" placeholder="Email Address">
-
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password" required>
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password"
-                    required formControlName="password" placeholder="Password">
-                  </div> 
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password"
-                    required formControlName="password" placeholder="Confirm Password">
-                  </div> 
-                </div>  
-                <button  class="btn btn-primary btn-user btn-block" type="submit" value="Signup">
+                
+                <button  class="btn btn-primary btn-user btn-block" type="submit">
                   Register Account
                 </button> 
-              </form>
+               </form>
+
               <hr> 
               <div class="text-center">
                 <a class="small" [routerLink]="['/Login']" >Already have an account? Login!</a>
