@@ -1,3 +1,7 @@
 venv
 .vscode
+<<<<<<< HEAD
 __pycache__
+=======
+__pycache__
+>>>>>>> first commit for backend
