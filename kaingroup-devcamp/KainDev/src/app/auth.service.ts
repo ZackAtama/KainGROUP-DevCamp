@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  
+  private BASE_URL: string ='http://localhost:4200/';
+  private headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
 
-  public login(userInfo: User){
-    localStorage.setItem('ACCESS_TOKEN', "access_token");
+  constructor(private http: HttpClient) { }
 
+  login(user): Promise<any>{
+    
+    let url: string = `${this.BASE_URL}/Login`;
+    return this.http.post(url, user, {headers: this.headers}).toPromise();
   }
 
-  public isLoggedIn(){
-    return localStorage.getItem('ACCESS_TOKEN') !== null;
+  signup(user): Promise<any> {
+    let url: string = `${this.BASE_URL}/Signup`;
+    return this.http.post(url, user, {headers: this.headers}).toPromise();
   }
 
-  public logout(){
-    localStorage.removeItem('ACCESS_TOKEN');
-  }
 }
