@@ -17,10 +17,14 @@ export class SignUpComponent {
      
     user: User = new User();
 
-    constructor(private auth: AuthService) {}
+    constructor(private formBuilder: FormBuilder, private authService: AuthService,
+      private router: Router) {
+  }
+ 
 
     onRegister(): void {
-      this.auth.signup(this.user)
+      
+      this.authService.signup(this.user)
       .then((user) => {
         localStorage.setItem('token', user.json().auth_token);
       })
